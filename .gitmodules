@@ -1,0 +1,12 @@
+[submodule "Core"]
+	path = Core
+	url = https://github.com/Mechanicca/Core.git
+	branch = master
+[submodule "Application"]
+	path = Application
+	url = https://github.com/Mechanicca/Application.git
+	branch = master
+[submodule "Components/Drivetrain"]
+	path = Components/Drivetrain
+	url = https://github.com/Mechanicca/Drivetrain.git
+	branch = master

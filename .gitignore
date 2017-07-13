@@ -30,3 +30,11 @@
 *.exe
 *.out
 *.app
+
+CMakeFiles
+Makefile
+*Build/
+Bin/*
+!Bin/DesignRules.db
+!Bin/Common/.gitkeep
+
