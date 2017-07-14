@@ -12,4 +12,3 @@ fi
 
 echo "Configuring CMake build"
 cd ./$DIRECTORY && cmake ../
-
