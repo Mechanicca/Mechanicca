@@ -101,8 +101,24 @@ endif()
 
 set( Qt5_LIBRARIES Qt5::Widgets Qt5::OpenGL )
 
+# -- Ogre ------------------------------------------------
+if( EXISTS "/usr/local/lib/OGRE/cmake" ) 
+    set( CMAKE_MODULE_PATH "/usr/local/lib/OGRE/cmake/;${CMAKE_MODULE_PATH}" )
+elseif( EXISTS "/usr/lib/OGRE/cmake" ) 
+    set( CMAKE_MODULE_PATH "/usr/lib/OGRE/cmake/;${CMAKE_MODULE_PATH}" )
+elseif( EXISTS "/usr/share/OGRE/cmake/modules" ) 
+    set( CMAKE_MODULE_PATH "/usr/share/OGRE/cmake/modules/;${CMAKE_MODULE_PATH}" )
+else()
+    message( FATAL_ERROR "Ogre installation not found." )
+endif()
+
+find_package(OGRE REQUIRED )
+
 # Core
 add_subdirectory( Core/Source )
+
+# Mechanicca application
+add_subdirectory( Application/Source )
 
 # Component plugins
 add_subdirectory( Components/Drivetrain/Source )
