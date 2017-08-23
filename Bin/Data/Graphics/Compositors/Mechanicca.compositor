@@ -6,7 +6,7 @@ compositor_node ShadowMapDebuggingRenderingNode
 	{
 		pass clear
 		{
-			colour_value 0.2 0.4 0.6 1
+			colour_value 1.0 1.0 1.0 1
 		}
 
 		pass render_scene
