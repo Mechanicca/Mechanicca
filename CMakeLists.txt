@@ -102,6 +102,47 @@ endif()
 set( Qt5_LIBRARIES Qt5::Widgets Qt5::OpenGL )
 
 # -- Ogre ------------------------------------------------
+# - Try to find OGRE
+# If you have multiple versions of Ogre installed, use the CMake or
+# the environment variable OGRE_HOME to point to the path where the
+# desired Ogre version can be found.
+# By default this script will look for a dynamic Ogre build. If you
+# need to link against static Ogre libraries, set the CMake variable
+# OGRE_STATIC to TRUE.
+#
+# Once done, this will define
+#
+#  OGRE_FOUND - system has OGRE
+#  OGRE_INCLUDE_DIRS - the OGRE include directories 
+#  OGRE_LIBRARIES - link these to use the OGRE core
+#  OGRE_BINARY_REL - location of the main Ogre binary (win32 non-static only, release)
+#  OGRE_BINARY_DBG - location of the main Ogre binaries (win32 non-static only, debug)
+#
+# Additionally this script searches for the following optional
+# parts of the Ogre package:
+#  Plugin_CgProgramManager, Plugin_ParticleFX, 
+#  RenderSystem_GL, RenderSystem_GL3Plus,
+#  RenderSystem_GLES, RenderSystem_GLES2,
+#  RenderSystem_Direct3D9, RenderSystem_Direct3D11
+#  Paging, Terrain, Volume, Overlay
+#
+# For each of these components, the following variables are defined:
+#
+#  OGRE_${COMPONENT}_FOUND - ${COMPONENT} is available
+#  OGRE_${COMPONENT}_INCLUDE_DIRS - additional include directories for ${COMPONENT}
+#  OGRE_${COMPONENT}_LIBRARIES - link these to use ${COMPONENT} 
+#  OGRE_${COMPONENT}_BINARY_REL - location of the component binary (win32 non-static only, release)
+#  OGRE_${COMPONENT}_BINARY_DBG - location of the component binary (win32 non-static only, debug)
+#
+# Finally, the following variables are defined:
+#
+#  OGRE_PLUGIN_DIR_REL - The directory where the release versions of
+#       the OGRE plugins are located
+#  OGRE_PLUGIN_DIR_DBG - The directory where the debug versions of
+#       the OGRE plugins are located
+#  OGRE_MEDIA_DIR - The directory where the OGRE sample media is
+#       located, if available
+
 if( EXISTS "/usr/local/lib/OGRE/cmake" ) 
     set( CMAKE_MODULE_PATH "/usr/local/lib/OGRE/cmake/;${CMAKE_MODULE_PATH}" )
 elseif( EXISTS "/usr/lib/OGRE/cmake" ) 
